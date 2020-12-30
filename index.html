@@ -1,0 +1,598 @@
+<!doctype html><html><head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <style>
+   #reslt
+   {
+    border:1px solid black;
+    text-align:center;
+   }  
+ </style> 
+ <style type="text/css" id="dcoder_stylesheet">h1
+{
+  text-align:center;
+  padding-top:20px;
+}
+table
+{
+  
+}
+#thead
+{
+  font-weight:bold;
+}
+#btn
+{
+  margin-left:120px;
+}</style></head> 
+ <body> 
+  <h1>GPA Calculator</h1> 
+  <hr> 
+  <div class="container"> 
+   <table class="table table-striped"> 
+    <tbody> 
+     <tr id="thead"> 
+      <td>Subject</td> 
+      <td>Grade</td> 
+      <td>Credits</td> 
+     </tr> 
+     <tr> 
+      <td>BEEE</td> 
+      <td> 
+       <form> 
+        <select id="sub1"></select> 
+       </form> </td> 
+      <td>3</td> 
+     </tr> 
+     <tr> 
+      <td>Differential equations and vector calculs</td> 
+      <td> 
+       <form> 
+        <select id="sub2"></select> 
+       </form> </td> 
+      <td>4</td> 
+     </tr> 
+     <tr> 
+      <td>Applied Physics</td> 
+      <td> 
+       <form> 
+        <select id="sub3"></select> 
+       </form> </td> 
+      <td>3</td> 
+     </tr> 
+     <tr> 
+      <td>Data Structures</td> 
+      <td> 
+       <form> 
+        <select id="sub4"></select> 
+       </form> </td> 
+      <td>3</td> 
+     </tr> 
+     <tr> 
+      <td>Communicative English-1</td> 
+      <td> 
+       <form> 
+        <select id="sub5"></select> 
+       </form> </td> 
+      <td>2</td> 
+     </tr> 
+     <tr> 
+      <td>BEEE Lab</td> 
+      <td> 
+       <form> 
+        <select id="sub6"></select> 
+       </form> </td> 
+      <td>1.5</td> 
+     </tr> 
+     <tr> 
+      <td>Applied Physics Lab</td> 
+      <td> 
+       <form> 
+        <select id="sub7"></select> 
+       </form> </td> 
+      <td>1.5</td> 
+     </tr> 
+     <tr> 
+      <td>Data structures lab</td> 
+      <td> 
+       <form> 
+        <select id="sub8"></select> 
+       </form> </td> 
+      <td>1.5</td> 
+     </tr> 
+     <tr> 
+      <td>IT Lab</td> 
+      <td> 
+       <form> 
+        <select id="sub9"></select> 
+       </form> </td> 
+      <td>1</td> 
+     </tr> 
+     <tr> 
+      <td>CE Lab</td> 
+      <td> 
+       <form> 
+        <select id="sub10"></select> 
+       </form> </td> 
+      <td>1</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <hr> 
+  <button id="btn" class="btn btn-primary btn-md" onclick="calculate()">CALCULATE</button> 
+  <div id="reslt" class="container m-3"> 
+  </div> 
+  <script>
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop1 = document.getElementById('sub1');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop1.appendChild(df);
+   }());
+   
+      (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop2 = document.getElementById('sub2');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop2.appendChild(df);
+   }());
+   
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop3 = document.getElementById('sub3');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop3.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop4 = document.getElementById('sub4');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop4.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop5 = document.getElementById('sub5');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop5.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop6 = document.getElementById('sub6');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop6.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop7 = document.getElementById('sub7');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop7.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop8 = document.getElementById('sub8');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop8.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop9 = document.getElementById('sub9');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop9.appendChild(df);
+   }());
+     
+     (function() {
+        a =["S","A","B","C","D","E","F"];
+        drop10 = document.getElementById('sub10');
+        df = document.createDocumentFragment();
+    for (var j = 0; j<a.length; j++) {
+        var option = document.createElement('option');
+        option.value =a[j];
+        option.appendChild(document.createTextNode(option.value));
+        df.appendChild(option);
+    }
+   drop10.appendChild(df);
+   }());
+     
+    
+   // var s1,s2,s3,s4,s5,s6,s7,s8,s9,s10;
+   function calculate()
+   {
+     
+   var s1g = drop1.options[drop1.selectedIndex].value;
+   var s2g = drop2.options[drop2.selectedIndex].value;
+   var s3g = drop3.options[drop3.selectedIndex].value;
+   var s4g = drop4.options[drop4.selectedIndex].value;
+   var s5g = drop5.options[drop5.selectedIndex].value;
+   var s6g = drop6.options[drop6.selectedIndex].value;
+   var s7g = drop7.options[drop7.selectedIndex].value;
+   var s8g = drop8.options[drop8.selectedIndex].value;
+   var s9g = drop9.options[drop9.selectedIndex].value;
+   var s10g = drop10.options[drop10.selectedIndex].value;
+   
+   //BEE
+   if (s1g == "S")
+   {
+     s1 =10*3;
+   }
+   else if(s1g == "A")
+   {
+     s1 =9*3;
+   }
+   else if(s1g == "B")
+   {
+     s1 =8*3;
+   }
+   else if(s1g == "C")
+   {
+     s1 =7*3;
+   }
+   else if(s1g == "D")
+   {
+     s1 =6*3;
+   }
+   else if(s1g == "E")
+   {
+     s1 =5*3;
+   }
+   else
+   {
+     s1 = 0;
+   }
+   
+   
+   //Maths
+    if (s2g == "S")
+   {
+     s2 =10*4;
+   }
+   else if(s2g == "A")
+   {
+     s2 =9*4;
+   }
+   else if(s2g == "B")
+   {
+     s2 =8*4;
+   }
+   else if(s2g == "C")
+   {
+     s2 =7*4;
+   }
+   else if(s2g == "D")
+   {
+     s2 =6*4;
+   }
+   else if(s2g == "E")
+   {
+     s2 =5*4;
+   }
+   else
+   {
+     s2 = 0;
+   }
+   
+    
+   //phy
+    if (s3g == "S")
+   {
+     s3 =10*3;
+   }
+   else if(s3g == "A")
+   {
+     s3 =9*3;
+   }
+   else if(s3g == "B")
+   {
+     s3 =8*3;
+   }
+   else if(s3g == "C")
+   {
+     s3 =7*3;
+   }
+   else if(s3g == "D")
+   {
+     s3 =6*3;
+   }
+   else if(s3g == "E")
+   {
+     s3 =5*3;
+   }
+   else
+   {
+     s3 = 0;
+   }
+   
+  
+  //DS
+    if (s4g == "S")
+   {
+     s4 =10*3;
+   }
+   else if(s4g == "A")
+   {
+     s4 =9*3;
+   }
+   else if(s4g == "B")
+   {
+     s4 =8*3;
+   }
+   else if(s4g == "C")
+   {
+     s4 =7*3;
+   }
+   else if(s4g == "D")
+   {
+     s4 =6*3;
+   }
+   else if(s4g == "E")
+   {
+     s4 =5*3;
+   }
+   else
+   {
+     s4 = 0;
+   }
+   
+   
+   //Eng
+    if (s5g == "S")
+   {
+     s5 =10*2;
+   }
+   else if(s5g == "A")
+   {
+     s5 =9*2;
+   }
+   else if(s5g == "B")
+   {
+     s5 =8*2;
+   }
+   else if(s5g == "C")
+   {
+     s5 =7*2;
+   }
+   else if(s5g == "D")
+   {
+     s5 =6*2;
+   }
+   else if(s5g == "E")
+   {
+     s5 =5*2;
+   }
+   else
+   {
+     s5 = 0;
+   }
+   
+   
+   //Beelab
+    if (s6g == "S")
+   {
+     s6 =10*1.5;
+   }
+   else if(s6g == "A")
+   {
+     s6 =9*1.5;
+   }
+   else if(s6g == "B")
+   {
+     s6 =8*1.5;
+   }
+   else if(s6g == "C")
+   {
+     s6 =7*1.5;
+   }
+   else if(s6g == "D")
+   {
+     s6 =6*1.5;
+   }
+   else if(s6g == "E")
+   {
+     s6 =5*1.5;
+   }
+   else
+   {
+     s6 = 0;
+   }
+   
+   
+    //Aplab
+    if (s7g == "S")
+   {
+     s7 =10*1.5;
+   }
+   else if(s7g == "A")
+   {
+     s7 =9*1.5;
+   }
+   else if(s7g == "B")
+   {
+     s7 =8*1.5;
+   }
+   else if(s7g == "C")
+   {
+     s7 =7*1.5;
+   }
+   else if(s7g == "D")
+   {
+     s7 =6*1.5;
+   }
+   else if(s7g == "E")
+   {
+     s7 =5*1.5;
+   }
+   else
+   {
+     s7 = 0;
+   }
+   
+   
+    //Dslab
+    if (s8g == "S")
+   {
+     s8 =10*1.5;
+   }
+   else if(s8g == "A")
+   {
+     s8 =9*1.5;
+   }
+   else if(s8g == "B")
+   {
+     s8 =8*1.5;
+   }
+   else if(s8g == "C")
+   {
+     s8 =7*1.5;
+   }
+   else if(s8g == "D")
+   {
+     s8 =6*1.5;
+   }
+   else if(s8g == "E")
+   {
+     s8 =5*1.5;
+   }
+   else
+   {
+     s8 = 0;
+   }
+   
+   
+    //ITw
+    if (s9g == "S")
+   {
+     s9 =10*1;
+   }
+   else if(s9g == "A")
+   {
+     s9 =9*1;
+   }
+   else if(s9g == "B")
+   {
+     s9 =8*1;
+   }
+   else if(s9g == "C")
+   {
+     s9 =7*1;
+   }
+   else if(s9g == "D")
+   {
+     s9 =6*1;
+   }
+   else if(s9g == "E")
+   {
+     s9 =5*1;
+   }
+   else
+   {
+     s9 = 0;
+   }
+   
+   
+  //Englab
+    if (s10g == "S")
+   {
+     s10 =10*1;
+   }
+   else if(s10g == "A")
+   {
+     s10 =9*1;
+   }
+   else if(s10g == "B")
+   {
+     s10 =8*1;
+   }
+   else if(s10g == "C")
+   {
+     s10 =7*1;
+   }
+   else if(s10g == "D")
+   {
+     s10 =6*1;
+   }
+   else if(s10g == "E")
+   {
+     s10 =5*1;
+   }
+   else
+   {
+     s10 = 0;
+   }
+
+
+  avg = (s1+s2+s3+s4+s5+s6+s7+s8+s9+s10)/21.5;
+   
+  var reslt = document.getElementById("reslt");
+  var txt = document.createElement("p");
+  reslt.append(txt);
+  txt.textContent ="Result = "+avg;
+  }  
+  </script> 
+ 
+</body></html>
